@@ -1,4 +1,14 @@
 # frontend
+## Dependencies
+
+- less : reduce the complex when write css
+- Vue-Cli: build project quickly
+- Vue Router: execute jump between pages
+- Element-UI: UI
+- Font Awesome: font and icon
+
+
+  
 
 ## Project setup
 ```
