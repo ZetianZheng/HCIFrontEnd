@@ -2,9 +2,10 @@
 ## Dependencies
 
 - less : reduce the complex when write css
-- Vue-Cli: build project quickly
-- Vue Router: execute jump between pages
-- Element-UI: UI
+- Vue [https://cn.vuejs.org/v2/guide/]
+- Vue-Cli: build project quickly [https://cli.vuejs.org/zh/guide/]
+- Vue Router: execute jump between pages [https://router.vuejs.org/zh/installation.html]
+- Element-UI: UI [https://element.eleme.io/#/zh-CN/component/layout]
 - Font Awesome: font and icon
 
 
