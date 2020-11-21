@@ -54,7 +54,8 @@
 
   #main {
     position: relative;
-    height: 1180px;
+    min-height: 1190px;
+
 
   }
   .footer{
