@@ -2,11 +2,10 @@
   <div id="app">
     <app-header></app-header>
 <!--    <div id ="main" class = "container" :style = "contentStyleObj">-->
-    <div id ="main" class = "container" :style = "contentStyleObj">
+    <div id ="main" class = "container">
         <router-view></router-view>
     </div>
     <app-footer class = "footer"></app-footer>
-
   </div>
 </template>
 
@@ -54,6 +53,8 @@
    }
 
   #main {
+    position: relative;
+    height: 1180px;
 
   }
   .footer{

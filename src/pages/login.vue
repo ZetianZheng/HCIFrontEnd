@@ -5,8 +5,8 @@
                 <div class = "loginHeader">Login</div>
                 <div class = "loginContent">
                     <div class = "line row">
-                            <label class= "col-md-3" style ="vertical-align:middle"> User: </label>
-                            <input type="text" class= "col-md-7" placeholder="email">
+                        <label class= "col-md-3" style ="vertical-align:middle"> User: </label>
+                        <input type="text" class= "col-md-7" placeholder="email">
                     </div>
                     <div class = "line row">
                         <label class= "col-md-3" > password: </label>
