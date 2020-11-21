@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 
 import  Home from '../pages/home.vue'
 import  Login from '../pages/login.vue'
+import  Register from '../pages/register'
 
 const routes = [
     {
@@ -13,6 +14,7 @@ const routes = [
         }
     },
     {path: '/login', name:'loginLink',component: Login},
+    {path: '/register', name:'registerLink',component: Register},
     {path: '*', redirect: '/'}
     ]
 

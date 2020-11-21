@@ -1,5 +1,33 @@
+<script>
+    import FullCalendar from '@fullcalendar/vue'
+    import dayGridPlugin from '@fullcalendar/daygrid'
+    import interactionPlugin from '@fullcalendar/interaction'
+
+    export default {
+        name: 'appHome',
+        components: {
+            FullCalendar // make the <FullCalendar> tag available
+        },
+        data() {
+            return {
+                calendarOptions: {
+                    plugins: [ dayGridPlugin, interactionPlugin ],
+                    initialView: 'dayGridMonth',
+                    dateClick: this.handleDateClick,
+                    events: [
+                        { title: 'event 1', date: '2019-04-01' },
+                        { title: 'event 2', date: '2019-04-02' }
+                    ]
+                }
+            }
+        },
+        methods: {
+            handleDateClick: function(arg) {
+                alert('date click! ' + arg.dateStr)
+            }
+        }
+    }
+</script>
 <template>
-    <div id="login">
-        <h1>hello world, here is home page</h1>
-    </div>
+    <FullCalendar :options="calendarOptions" />
 </template>
