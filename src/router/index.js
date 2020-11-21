@@ -6,6 +6,8 @@ Vue.use(VueRouter)
 import  Home from '../pages/home.vue'
 import  Login from '../pages/login.vue'
 import Manager from '../pages/todoManage.vue'
+import  Register from '../pages/register'
+
 
 const routes = [
     {
@@ -14,7 +16,11 @@ const routes = [
         }
     },
     {path: '/login', name:'loginLink',component: Login},
+
     {path: '/Manager', name:'managerLink',component: Manager},
+
+    {path: '/register', name:'registerLink',component: Register},
+
     {path: '*', redirect: '/'}
     ]
 

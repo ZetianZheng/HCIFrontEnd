@@ -18,6 +18,7 @@
             </li>
             <li>
                 <router-link :to="{name: 'registerLink'}" class="nav-link">Register</router-link>
+<!--                <router-link :to="{name: 'registerLink'}" class="nav-link">Register</router-link>-->
             </li>
         </ul>
     </nav>
@@ -39,8 +40,7 @@
         text-decoration: none
     }
     nav {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding: 0 120px;
     }
 
 </style>
