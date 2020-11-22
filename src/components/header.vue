@@ -6,10 +6,7 @@
                 <router-link :to="{name: 'homeLink'}" class="nav-link">Home</router-link>
             </li>
             <li>
-                <router-link :to="{name: 'focusLink'}" class="nav-link">Month plan</router-link>
-            </li>
-            <li>
-                <router-link :to="{name: 'weekLink'}" class="nav-link">Week plan</router-link>
+                <router-link :to="{name: 'focusLink'}" class="nav-link">Focus</router-link>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">

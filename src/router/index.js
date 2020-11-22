@@ -7,7 +7,11 @@ import  Home from '../pages/home.vue'
 import  Login from '../pages/login.vue'
 import Manager from '../pages/todoManage.vue'
 import  Register from '../pages/register'
+
 import Task from '../pages/task'
+
+import Focus from '../pages/focus'
+
 
 
 const routes = [
@@ -23,6 +27,8 @@ const routes = [
     {path: '/Manager', name:'managerLink',component: Manager},
 
     {path: '/register', name:'registerLink',component: Register},
+
+    {path: '/focus', name:'focusLink',component: Focus},
 
     {path: '*', redirect: '/'}
     ]
