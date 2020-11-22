@@ -7,6 +7,7 @@ import  Home from '../pages/home.vue'
 import  Login from '../pages/login.vue'
 import Manager from '../pages/todoManage.vue'
 import  Register from '../pages/register'
+import Task from '../pages/task'
 
 
 const routes = [
@@ -16,6 +17,8 @@ const routes = [
         }
     },
     {path: '/login', name:'loginLink',component: Login},
+
+    {path: '/task', name:'tasklink', component: Task},
 
     {path: '/Manager', name:'managerLink',component: Manager},
 
