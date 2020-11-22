@@ -37,6 +37,7 @@
         text-decoration: none
     }
     nav {
+        background: linear-gradient(#ccccd6, #93b5cf);
         padding: 0 120px;
     }
 
