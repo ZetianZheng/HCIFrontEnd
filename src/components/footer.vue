@@ -2,19 +2,25 @@
   <!--#93b5cf-->
     <div id="CFooter">
           <el-row :gutter="60" type="flex" justify="center">
-            <el-col :span="2"><a href="/index.html" target="_blank">关于</a></el-col>
-            <el-col :span="2"><a href="/index.html" target="_blank">博客</a></el-col>
-            <el-col :span="2"><a href="/index.html" target="_blank">网站</a></el-col>
+            <el-col :span="2"><a href="https://vuejs.org/" target="_blank">关于</a></el-col>
+            <el-col :span="2"><a href="https://fullcalendar.io/" target="_blank">博客</a></el-col>
+            <el-col :span="2"><a href="https://github.com/ZetianZheng/HCIFrontEnd/" target="_blank">网站</a></el-col>
           </el-row>
 
           <el-row  type="flex" justify="center">
             <el-col :span="24">
-              <el-button type="primary" icon="el-icon-video-camera-solid" align="center"></el-button>
+              <el-image
+                  style="width: 30px; height: 30px"
+                  :src="require('../assets/Todo-List.svg')"
+                  :fit="cover"></el-image>
             </el-col>
           </el-row>
 
           <el-row :gutter="100" type="flex" justify="center">
-            <el-col :span="24"><label>d @ 2015     最美应用     ALL RIGHTS RESERVED     北京市朝阳区望京 SOHO 塔2 C座230311室 </label></el-col>
+            <el-col :span="6"></el-col>
+            <el-col :span="6"><label>@ Zetian Zheng G36558368</label></el-col>
+            <el-col :span="6"><label>Yunsong Wang G36955252</label></el-col>
+            <el-col :span="6"></el-col>
           </el-row>
     </div>
 </template>
@@ -27,7 +33,16 @@
         return{
 
         }
+      },
+
+      methods: {
+        About () {
+          window.location.href = 'https://www.baidu.com'
+          //window.open('https://fullcalendar.io')
+          //this.$router.push('pages/login.vue')
+        },
       }
+
     }
 </script>
 
