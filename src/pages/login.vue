@@ -14,7 +14,7 @@
                     </div>
                     <el-row :gutter="60" type="flex" class="buttonLine" justify="center">
                         <el-col :span="10"><el-button type="primary" plain>Login</el-button></el-col>
-                        <el-col :span="10"><el-button type="primary" plain>Register</el-button></el-col>
+                        <el-col :span="10"><el-button type="primary" onclick="register" plain>register</el-button></el-col>
                     </el-row>
                 </div>
             </div>
@@ -29,6 +29,11 @@
             return{
 
             }
+        },
+        methods: {
+          register: function () {
+            this.$router.push({ path:'~/src/pages/register.vue'})
+          },
         }
     }
 </script>

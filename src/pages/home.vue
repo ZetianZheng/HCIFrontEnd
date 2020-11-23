@@ -62,10 +62,12 @@
     }
 </script>
 <template>
+  <div>
     <FullCalendar :options="calendarOptions">
-        <template v-slot:eventContent='arg'>
-            <b>{{ arg.timeText}} </b>
-            <i>{{ arg.event.title}}</i>
-        </template>
+      <template v-slot:eventContent='arg'>
+        <b>{{ arg.timeText}} </b>
+        <i>{{ arg.event.title}}</i>
+      </template>
     </FullCalendar>
+  </div>
 </template>

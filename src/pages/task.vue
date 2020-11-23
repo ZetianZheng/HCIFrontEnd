@@ -35,6 +35,24 @@
           </el-col>
 
           <el-col :span="6">
+            <label>Start date</label>
+          </el-col>
+
+          <el-col :span="8">
+            <el-date-picker
+                v-model="value1"
+                type="date"
+                placeholder="Start date">
+            </el-date-picker>
+          </el-col>
+        </el-row>
+
+        <el-row :gutter="30" type="flex" justify="center">
+          <el-col :span="1">
+            <el-button class="buttonsize" size="medium" type="primary" icon="el-icon-time" align="center"></el-button>
+          </el-col>
+
+          <el-col :span="6">
             <label>Start time</label>
           </el-col>
 
@@ -56,56 +74,35 @@
           </el-col>
 
           <el-col :span="6">
-            <label>End time</label>
-          </el-col>
-
-          <el-col :span="8">
-            <el-time-picker
-                v-model="value1"
-                :picker-options="{
-    selectableRange: '00:00:00 - 24:00:00'
-  }"
-                placeholder="End time">
-            </el-time-picker>
-          </el-col>
-        </el-row>
-
-        <el-row :gutter="30" type="flex" justify="center">
-          <el-col :span="1">
-            <el-button class="buttonsize" size="medium" type="primary" icon="el-icon-time" align="center"></el-button>
-          </el-col>
-
-          <el-col :span="6">
-            <label>Duration</label>
-          </el-col>
-
-          <el-col :span="8">
-            <el-time-picker
-                is-range
-                v-model="value1"
-                range-separator="to"
-                start-placeholder="Start time"
-                end-placeholder="End time"
-                placeholder="choose duration">
-            </el-time-picker>
-          </el-col>
-        </el-row>
-
-        <el-row :gutter="30" type="flex" justify="center">
-          <el-col :span="1">
-            <el-button class="buttonsize" size="medium" type="primary" icon="el-icon-time" align="center"></el-button>
-          </el-col>
-
-          <el-col :span="6">
-            <label>Start date</label>
+            <label>End date</label>
           </el-col>
 
           <el-col :span="8">
             <el-date-picker
                 v-model="value1"
                 type="date"
-                placeholder="Start date">
+                placeholder="End date">
             </el-date-picker>
+          </el-col>
+        </el-row>
+
+        <el-row :gutter="30" type="flex" justify="center">
+          <el-col :span="1">
+            <el-button class="buttonsize" size="medium" type="primary" icon="el-icon-time" align="center"></el-button>
+          </el-col>
+
+          <el-col :span="6">
+            <label>End time</label>
+          </el-col>
+
+          <el-col :span="8">
+            <el-time-picker
+                v-model=value1
+                :picker-options="{
+    selectableRange: '00:00:00 - 24:00:00'
+  }"
+                placeholder="End time">
+            </el-time-picker>
           </el-col>
         </el-row>
 
@@ -206,13 +203,16 @@ export default {
 /*    height: 100%;*/
 /*}*/
   #background{
+    background-color: unset;
     padding: 50px 0;
     height: 1190px
   }
   #full {
+    background-color: cyan;
+    position: fixed;
     height: @h + 100px;
     width: @lw + 80px;
-    background: #eeeeee;
+    //background: #eeeeee;
     opacity: 0.7;
     margin: 0 auto;
     padding: 20px 0;

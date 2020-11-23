@@ -9,6 +9,12 @@
 - Font Awesome: font and icon
 - bootstrap [https://v3.bootcss.com/components/]
 
+## 遮罩层
+1。 写一个遮罩层，卡片显示在中间，背后全是灰色的半透明界面
+    遮罩层如何盖住这个home界面，并且后面的内容都无法点击
+2。 通过v-show 来控制这个componenet是否显示
+3。 script data() funciton 里写数据逻辑。把你点击到的事件标题和事件时间传递给子组件
+
 
   
 
