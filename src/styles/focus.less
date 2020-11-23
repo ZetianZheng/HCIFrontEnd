@@ -1,0 +1,38 @@
+@icon: 30px;
+#focus {
+  height: 200px;
+  #f-header {
+    width: 100%;
+    height: @icon+10px;
+    svg {
+      width: @icon;
+      height: @icon;
+      float: left;
+    }
+  }
+}
+.swiper-content {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  margin: 40px;
+  .show-swiper {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    .swiper-slide {
+      width: 500px;
+      // 表示所有属性都有动作效果，过度时间为0.4s，以慢速开始和结束的过渡效果
+      transition: all .4s cubic-bezier(.4, 0, .2, 1);
+      padding-right:80px;
+      text-align: center;
+
+      .swiper-item {
+
+      }
+    }
+  }
+}
