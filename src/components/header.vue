@@ -37,7 +37,8 @@
         text-decoration: none
     }
     nav {
-        background: linear-gradient(#ccccd6, #93b5cf);
+        /*background: linear-gradient(#93b5cf,#ccccd6);*/
+        background: #ccccd6;
         padding: 0 120px;
     }
 
