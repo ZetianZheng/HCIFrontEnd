@@ -1,38 +1,55 @@
 <script>
-    import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-    import 'swiper/swiper-bundle.css';
     import FocusCard from '../components/focusCard.vue';
+    import {TEST_EVENT_DATA} from "../JS/event-utils";
+    import {mapState} from 'vuex';
+    // import store from '@/store';
 
     export default {
         name:'focus',
         components: {
-            Swiper,
-            SwiperSlide,
             FocusCard,
         },
 
         data() {
             return {
+                events: TEST_EVENT_DATA,
                 swiperOption: {
-                    effect: 'coverflow',
-                    grabCursor: true,
-                    centeredSlides: true,
                     slidesPerView: 'auto',
-                    coverflowEffect: {
-                        rotate: 50,
-                        stretch: 0,
-                        depth: 100,
-                        modifier: 1,
-                        slideShadows : true
-                    },
-                    pagination: {
-                        el: '.swiper-pagination'
-                    }
+                    watchSlidesProgress: true,
+                    // 设定slide与左边框的预设偏移量（单位px）
+                    slidesOffsetBefore: 37,
+                    // 设置slide之间的距离（单位px）
+                    spaceBetween: 17,
+                    centeredSlides: true,
+                    init: false,
+                    longSwipesRatio: 0.1,
+                    touchReleaseOnEdges: true,
+                    observer: true, // 修改swiper自己或子元素时，自动初始化swiper
+                    observeParents: true, // 修改swiper的父元素时，自动初始化swiper
+                    // on: {
+                    //     progress: function() {
+                    //         for (let i = 0; i < this.slides.length; i++) {
+                    //             const slide = this.slides.eq(i)
+                    //             const slideProgress = this.slides[i].progress
+                    //
+                    //             const scale = 1 - Math.abs(slideProgress) / 5 // 缩放权重值，随着progress由中向两边依次递减，可自行调整
+                    //             slide.transform(`scale3d(${scale}, ${scale}, 1)`)
+                    //         }
+                    //     },
+                        // slideChange: function() {
+                        //     store.commit('SET_ACTIVE_INDEX', this.activeIndex)
+                        // }
+                    // }
                 }
             }
         },
         computed: {
-
+            swiper() {
+                return this.$refs.mySwiper.swiper
+            },
+            ...mapState({
+                activeItemIndex: state => state.activeIndex
+            })
         },
         methods: {
             goback: function() {
@@ -50,67 +67,26 @@
 
 <template>
     <div id="focus">
-        <div class = "f-header">
+        <div id = "f-header">
             <svg @click = "goback" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z"/>
             </svg>
-            <el-button>Start Focus</el-button>
         </div>
-        <div class = "swipe-cards">
-            <swiper class="swiper" :options="swiperOption">
-                <swiper-slide><focusCard></focusCard></swiper-slide>
-                <swiper-slide>Slide 2</swiper-slide>
-                <swiper-slide>Slide 3</swiper-slide>
-                <swiper-slide>Slide 4</swiper-slide>
-                <swiper-slide>Slide 5</swiper-slide>
-                <swiper-slide>Slide 6</swiper-slide>
-                <swiper-slide>Slide 7</swiper-slide>
-                <div class="swiper-pagination" slot="pagination"></div>
+        <div class = "swiper-content" >
+            <swiper ref="mySwiper" :option = "swiperOption" class = "show-swiper">
+                <template v-for="event in events">
+                    <swiper-slide :key="event.id">
+                        <focusCard
+                                v-bind:event = "event"
+                                class = "swiper-item"
+                        ></focusCard>
+                    </swiper-slide>
+                </template>
             </swiper>
         </div>
     </div>
 </template>
 
 <style lang = "less">
-    @icon: 30px;
-    #focus {
-        height: 200px;
-        .f-header {
-            width: 100%;
-            height: @icon+10px;
-            svg {
-                width: @icon;
-                height: @icon;
-                float: left;
-            }
-        }
-    }
-    .swipe-cards {
-        width: 100%;
-        height: 400px;
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-    .swiper {
-        .swiper-slide {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 300px;
-            height: 300px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 16px * 2;
-            background-color: #2C8DFB;
-            background-position: center;
-            background-size: cover;
-            color: white;
-        }
-
-        .swiper-pagination {
-            /deep/ .swiper-pagination-bullet.swiper-pagination-bullet-active {
-                background-color: white;
-            }
-        }
-    }
+    @import "~@/styles/focus";
 </style>
