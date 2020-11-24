@@ -10,11 +10,11 @@
                     </div>
                     <div class = "line row">
                         <label class= "col-md-3" > password: </label>
-                        <input type="text" class= "col-md-7" placeholder="password">
+                        <input type="password" class= "col-md-7" placeholder="password">
                     </div>
                     <el-row :gutter="60" type="flex" class="buttonLine" justify="center">
                         <el-col :span="10"><el-button type="primary" plain>Login</el-button></el-col>
-                        <el-col :span="10"><el-button type="primary" onclick="register" plain>register</el-button></el-col>
+                        <el-col :span="10"><el-button type="primary" v-on:click="register" plain>register</el-button></el-col>
                     </el-row>
                 </div>
             </div>
@@ -27,14 +27,14 @@
         name: "login",
         data() {
             return{
-
+                info: null
             }
         },
         methods: {
           register: function () {
-            this.$router.push({ path:'~/src/pages/register.vue'})
+            this.$router.push({ name:'registerLink'})
           },
-        }
+        },
     }
 </script>
 

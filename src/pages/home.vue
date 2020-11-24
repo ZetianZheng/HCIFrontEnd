@@ -30,7 +30,8 @@
                     eventsSet: this.handleEvents,
                     dateClick: this.handleDateClick,
                 },
-                currentEvents: []
+              currentEvents: [],
+              info: null
             }
         },
         methods: {
@@ -58,7 +59,24 @@
             handleEvents(events) {
                 this.currentEvents = events
             }
-        }
+        },
+      mounted() {
+        this.axios
+                .get('http://localhost:8080/hello/',{
+                  headers: {
+                    'Access-Control-Allow-Origin': '*',
+                  },
+                  proxy:{
+                    host:'192.168.1.156',
+                    port: '8080'
+                  }
+                })
+                .then(response => {(this.info = response.data);
+                console.log(this.info)})
+                .catch(function (error) { // 请求失败处理
+                  console.log(error);
+                });
+      }
     }
 </script>
 <template>

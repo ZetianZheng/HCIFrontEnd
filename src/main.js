@@ -9,11 +9,16 @@ import 'element-ui/lib/theme-chalk/index.css';
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 Vue.config.productionTip = false
 
 Vue.use(VueAwesomeSwiper);
 
 Vue.use(ElementUI);
+
+Vue.use(VueAxios, axios)
 
 new Vue({
   router,
