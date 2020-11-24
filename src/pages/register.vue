@@ -6,15 +6,19 @@
         <div class = "registerContent">
           <div class = "line row">
             <label class= "col-md-3" style ="vertical-align:middle"> User: </label>
-            <input type="text" class= "col-md-7" placeholder="email">
+            <input type="text" class= "col-md-7" placeholder="user
+">
           </div>
           <div class = "line row">
             <label class= "col-md-3" > password: </label>
-            <input type="text" class= "col-md-7" placeholder="password">
+            <input type="password" class= "col-md-7" placeholder="password" v-model="password1">
+          </div>
+          <div class = "line row">
+            <label class= "col-md-3" > confirm: </label>
+            <input type="password" class= "col-md-7" placeholder="password" v-model="password2">
           </div>
           <el-row :gutter="60" type="flex" class="buttonLine" justify="center">
-            <el-col :span="10"><el-button type="primary" plain>Login</el-button></el-col>
-            <el-col :span="10"><el-button type="primary" onclick="register" plain>register</el-button></el-col>
+            <el-col :span="10"><el-button type="primary" v-on:click="register" plain>register</el-button></el-col>
           </el-row>
         </div>
       </div>
@@ -27,12 +31,18 @@
     name: "register",
     data() {
       return{
-
+        password1: '',
+        password2: '',
       }
     },
     methods: {
       register: function () {
         //this.$router.push({ path:'~/src/pages/register.vue'})
+        if(this.password1 != this.password2){
+            alert("The two entered passwords do not match, make sure to re-enter")
+        } else {
+          this.$router.push({ name:'homeLink'})
+        }
       },
     }
   }

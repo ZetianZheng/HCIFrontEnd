@@ -5,6 +5,7 @@ import store from './store/index'
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import locale from '../node_modules/element-ui/lib/locale/lang/en'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
@@ -16,7 +17,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueAwesomeSwiper);
 
-Vue.use(ElementUI);
+Vue.use(ElementUI,{locale});
 
 Vue.use(VueAxios, axios)
 

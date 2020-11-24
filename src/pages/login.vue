@@ -6,7 +6,7 @@
                 <div class = "loginContent">
                     <div class = "line row">
                         <label class= "col-md-3" style ="vertical-align:middle"> User: </label>
-                        <input type="text" class= "col-md-7" placeholder="email">
+                        <input type="text" class= "col-md-7" placeholder="user">
                     </div>
                     <div class = "line row">
                         <label class= "col-md-3" > password: </label>
