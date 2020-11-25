@@ -14,7 +14,7 @@
                     </div>
                     <el-row :gutter="60" type="flex" class="buttonLine" justify="center">
                         <el-col :span="10"><el-button type="primary" plain>Login</el-button></el-col>
-                        <el-col :span="10"><el-button type="primary" v-on:click="register" plain>register</el-button></el-col>
+                        <el-col :span="10"><el-button type="primary" v-on:click="test" plain>register</el-button></el-col>
                     </el-row>
                 </div>
             </div>
@@ -34,6 +34,16 @@
           register: function () {
             this.$router.push({ name:'registerLink'})
           },
+            test: function(){
+              let arr=[
+                  {'message':1,'log':2},
+                  {'message':2},
+                  {'message':3},
+                  {'message':4},
+                  ]
+                arr.push({message:5})
+                console.log(arr)
+            }
         },
     }
 </script>

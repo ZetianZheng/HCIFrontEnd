@@ -14,8 +14,9 @@
             return {
                 mission_title:"",
                 mission_note:"",
+                mission_id:"",
                 tempInfo:null,
-                value1: [new Date('Tue Nov 24 2020 08:00:00 GMT+0800 (中国标准时间)'), new Date('Tue Nov 24 2020 08:00:00 GMT+0800 (中国标准时间)')],
+                value1: [],
                 dialogVisible: false,
                 innerVisible: false,
                 calendarOptions: {
@@ -35,9 +36,10 @@
                     eventClick: this.handleEventClick,
                     eventsSet: this.handleEvents,
                     dateClick: this.handleDateClick,
-                    timeZone: 'UTC'
+                    timeZone: 'America/NewYork'
                 },
               currentEvent: [],
+              eventList:[],
               info: null
             }
         },
@@ -46,6 +48,7 @@
             handleDateClick: function (selectInfo) {
               // let title = prompt('please enter a new event')
               this.mission_title = "";
+              this.mission_note = "";
               this.tempInfo = selectInfo;
               if(selectInfo.allDay == true) {
                 this.$set(this.value1, 0, new Date(selectInfo.dateStr));
@@ -54,43 +57,59 @@
                 this.$set(this.value1, 0, new Date(selectInfo.dateStr));
                 this.$set(this.value1, 1, new Date(selectInfo.dateStr));
               }
-              console.log('selectInfo',this.tempInfo);
-              console.log('value1',this.value1);
-              console.log('done');
+              // console.log('selectInfo',this.tempInfo);
+              // console.log('value1',this.value1);
               this.dialogVisible = true;
             },
           addEvent() {
-            console.log('2',this.tempInfo)
-            createEventId()
-            let calendarApi = this.tempInfo.view.calendar
-            calendarApi.unselect() // clear date selection
+            // console.log('2',this.tempInfo);
+            let calendarApi = this.tempInfo.view.calendar;
+            calendarApi.unselect(); // clear date selection
+            this.mission_id = createEventId();
             calendarApi.addEvent({
-              id: createEventId(),
+              id: this.mission_id,
               title: this.mission_title,
               start: this.tempInfo.dateStr,
               end: this.tempInfo.endStr,
               allDay: this.tempInfo.allDay
             })
-            this.tempInfo = null
-            this.mission_title = ''
+            this.tempInfo = null;
+            let event={'id': this.mission_id, 'note':this.mission_note,};
+            this.eventList.push(event);
+            console.log("list",this.eventList);
             this.closeDialog()
           },
             handleEventClick(clickInfo) {
               this.dialogVisible = true;
-              this.currentEvent = clickInfo.event
-              this.mission_title = this.currentEvent.title
+              this.currentEvent = clickInfo.event;
+              this.mission_title = this.currentEvent.title;
+              for (const item of this.eventList) {
+                if(item.id == this.currentEvent.id){
+                  this.mission_note = item.note;
+                  break;
+                }
+              }
+              //for each can not break the loop, so the mission title must be null, in this case, the es6 recommend us to use for...of..
+              // this.eventList.forEach(item =>{
+              //   console.log(item.id);
+              //   console.log(this.currentEvent.id);
+              //   if(item.id == this.currentEvent.id){
+              //     this.mission_note = item.note;
+              //   }else {
+              //     this.mission_note = ""
+              //   }
+              // })
               if(this.currentEvent.allDay == true){
-                this.$set(this.value1, 0, new Date(this.currentEvent.start));
-                this.$set(this.value1, 1, new Date(this.value1[0].getDate()+1));
+                this.$set(this.value1, 0, new Date(this.currentEvent.startStr));
+                this.$set(this.value1, 1, new Date(this.currentEvent.startStr));
               }else if(this.currentEvent.end == null){
-                this.value1[0] = new Date(this.currentEvent.start)
-                this.value1[1].setHours(this.value1[0].getHours()+1)
+                this.$set(this.value1, 0, new Date(this.currentEvent.startStr));
+                this.$set(this.value1, 1, new Date(this.currentEvent.startStr));
               }else {
-                this.value1[0] = new Date(this.currentEvent.start)
-                this.value1[1] = new Date(this.currentEvent.end)
+                this.$set(this.value1, 0, new Date(this.currentEvent.startStr));
+                this.$set(this.value1, 1, new Date(this.currentEvent.endStr));
               }
               console.log('clickinfo',this.currentEvent)
-              // clickInfo.event.remove()
 
             },
 
@@ -104,7 +123,7 @@
               this.mission_note=""
             },
             closeDelete(){
-              this.closeDialog()
+              this.closeDialog();
               this.deleteEvent(this.currentEvent)
             }
         },

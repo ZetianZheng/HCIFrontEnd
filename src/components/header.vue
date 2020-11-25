@@ -9,15 +9,15 @@
                 <router-link :to="{name: 'focusLink'}" class="nav-link">Focus</router-link>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
-            <li>
-                <router-link :to="{name: 'loginLink'}" class="nav-link">Log in</router-link>
-            </li>
-            <li>
-                <router-link :to="{name: 'registerLink'}" class="nav-link">Register</router-link>
+<!--        <ul class="navbar-nav ml-auto">-->
+<!--            <li>-->
+<!--                <router-link :to="{name: 'loginLink'}" class="nav-link">Log in</router-link>-->
+<!--            </li>-->
+<!--            <li>-->
 <!--                <router-link :to="{name: 'registerLink'}" class="nav-link">Register</router-link>-->
-            </li>
-        </ul>
+<!--&lt;!&ndash;                <router-link :to="{name: 'registerLink'}" class="nav-link">Register</router-link>&ndash;&gt;-->
+<!--            </li>-->
+<!--        </ul>-->
     </nav>
 </template>
 
